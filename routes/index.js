@@ -1,21 +1,15 @@
 var express = require('express');
-var MongoClient = require('mongodb').MongoClient;
+var Users = require('../model/Users');
 
 var router = express.Router();
-var url = "mongodb://localhost:27017/";
+
 
 router.get('/', function(req, res, next) {
-  
-  MongoClient.connect(url, function (err, db) {
+  Users.find().toArray(function (err, result) {
     if (err) throw err;
-    var dbo = db.db("Users");
-    dbo.collection("users").find().toArray(function (err, result) {
-      if (err) throw err;
-      console.log(result);
-      res.render('index', { users: result });
-      db.close();
-    });
+    res.render('index', { users: result });
   });
 });
+
 
 module.exports = router;

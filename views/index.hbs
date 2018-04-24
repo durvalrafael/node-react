@@ -1,12 +1,1 @@
-<ul>
-    {{#each users}}
-    <li>Nome: {{nome}}</li>
-    <li>Email: {{email}}</li>
-    <li>Telefone: {{telefone}}</li>
-    {{/each}}
-</ul>
-<script>
-    $.ajax('/api/users').then((data) => {
-        $('body').append(JSON.stringify(data));
-    })
-</script>
+<div id="app"></div>

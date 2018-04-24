@@ -36,9 +36,9 @@ app.use(cookieParser());
 //   indentedSyntax: true, // true = .sass and false = .scss
 //   sourceMap: true
 // }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client')));
 
-app.use('/', index);
+ app.use('/', index);
 app.use('/api/users', users);
 
 // catch 404 and forward to error handler

@@ -1,13 +1,13 @@
 {
   "name": "node-react",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "client": "cd client && npm start",
+    "server": "nodemon ./bin/www",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "body-parser": "~1.18.2",
-    "concurrently": "^3.5.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
@@ -16,5 +16,8 @@
     "morgan": "~1.9.0",
     "node-sass-middleware": "0.9.8",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }
